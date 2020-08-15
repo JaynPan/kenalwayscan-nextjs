@@ -11,11 +11,11 @@ export default function Home({allPosts}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      {allPosts.map(({title, excerpt}) => {
+      {allPosts.map(({id, title, excerpt}) => {
         return (
-          <div>
+          <div key={id}>
             <h3>{title.rendered}</h3>
-            <p dangerouslySetInnerHTML={{__html: excerpt.rendered}}></p>
+            <div dangerouslySetInnerHTML={{__html: excerpt.rendered}} />
           </div>
         );
       })}
