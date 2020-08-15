@@ -17,7 +17,9 @@ export default function Home({allPosts}) {
           <div key={id}>
             <h3>{title.rendered}</h3>
             <div dangerouslySetInnerHTML={{__html: excerpt.rendered}} />
-            <Link as={`/projects/${slug}`} href="/projects/[slug]">Read More</Link>
+            <Link as={`/projects/${slug}`} href="/projects/[slug]">
+              <a>Read More</a>
+            </Link>
           </div>
         );
       })}
@@ -26,7 +28,7 @@ export default function Home({allPosts}) {
   )
 }
 
-export async function getStaticProps({ preview = false }) {
+export async function getServerSideProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview)
   return {
     props: { allPosts, preview },

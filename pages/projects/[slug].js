@@ -11,22 +11,12 @@ export default function Project({ data }) {
   )
 }
 
-export async function getStaticProps({ params, preview = false}) {
+export async function getServerSideProps({ params }) {
   const data = await getProject(params.slug)
 
   return {
     props: {
-      preview,
       data
     },
-  }
-}
-
-export async function getStaticPaths() {
-  const allSlugs = await getAllProjectsWithSlug()
-
-  return {
-    paths: allSlugs.map((slug) => `/projects/${slug}`) || [],
-    fallback: true,
   }
 }
