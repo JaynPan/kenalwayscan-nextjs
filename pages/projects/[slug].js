@@ -3,12 +3,10 @@ import React from 'react'
 import { getProject, getAllProjectsWithSlug } from '../../lib/api';
 
 export default function Project({ data }) {
-  const { project, media } = data;
-
   return (
     <div>
-      <h2>{project?.title?.rendered}</h2>
-      <img src={media?.original} alt="project banner" />
+      <h2>{data?.project?.title?.rendered}</h2>
+      <img src={data?.media?.original} alt="project banner" />
     </div>
   )
 }
