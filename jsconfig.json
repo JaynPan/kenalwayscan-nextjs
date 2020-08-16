@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/styles/*": ["styles/*"],
-      "@/lib/*": ["lib/*"]
+      "@/lib/*": ["lib/*"],
+      "@/config/*": ["config/*"]
     },
   },
   "exclude": ["node_modules"]
