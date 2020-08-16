@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
-import { getAllPostsForHome } from '../lib/api'
+import styles from '@/styles/Home.module.css'
+import { getAllPostsForHome } from '@/lib/api';
+
 
 export default function Home({allPosts}) {
   return (

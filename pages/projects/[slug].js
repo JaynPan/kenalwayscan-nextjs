@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { getProject, getAllProjectsWithSlug } from '../../lib/api';
+import { getProject, getAllProjectsWithSlug } from '@/lib/api';
 
 export default function Project({ data }) {
   return (
