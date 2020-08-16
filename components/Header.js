@@ -2,6 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import { PAGE_MARGIN, BLEND_MODE } from '@/config/styles';
+import NavLink from '@/components/NavLink';
 
 const Nav = styled.nav`
   position: fixed;
@@ -33,6 +34,13 @@ const Nav = styled.nav`
       &:last-child {
         margin-right: 0;
       }
+
+      a {
+        &:hover,
+        &.active {
+          border-bottom: 1px solid #fff;
+        }
+      }
     }
   }
 `;
@@ -59,9 +67,9 @@ export default function Header() {
       </Logo>
       <ul>
         <li>
-          <Link as="/" href="/">
+          <NavLink as="/" href="/">
             <a>Overview</a>
-          </Link>
+          </NavLink>
         </li>
         <li>
           <Link as="/project" href="/project">
