@@ -12,9 +12,14 @@ const Nav = styled.nav`
   margin: ${PAGE_MARGIN};
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #fff;
   font-size: 18px;
   mix-blend-mode: ${BLEND_MODE};
+
+  h4, li {
+    margin: 0;
+  }
 
   ul {
     display: flex;
