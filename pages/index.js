@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import 'scroll-behavior-polyfill';
 
 import fetchHomeData from '@/lib/home/api';
-import { TITLE } from '@/config/constants';
+import { PAGE_TITLE } from '@/config/constants';
 import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';
 
@@ -38,7 +38,7 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>{`Home | ${TITLE}`}</title>
+        <title>{`Home | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
