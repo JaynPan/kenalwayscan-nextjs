@@ -32,6 +32,12 @@ const Section = styled.section`
   scroll-snap-stop: always;
 `;
 
+const Title = styled.h2`
+  font-size: 2.5rem;
+  white-space: pre-wrap;
+  width: 70%;
+`;
+
 export default function Home({ data }) {
   const sliders = data?.acf?.slider || [];
 
@@ -45,7 +51,7 @@ export default function Home({ data }) {
         <HomeWrapper scroll-behavior="smooth">
           <main>
             {sliders.length > 0
-            && sliders.map(({ image }) => {
+            && sliders.map(({ image, description }) => {
               const imageUrl = image.sizes.xxl;
 
               return (
@@ -54,7 +60,9 @@ export default function Home({ data }) {
                   style={{
                     background: `url('${imageUrl}') no-repeat center center/cover`,
                   }}
-                />
+                >
+                  <Title>{description}</Title>
+                </Section>
               );
             })}
           </main>
