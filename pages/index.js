@@ -52,7 +52,7 @@ export default function Home({ data }) {
           <main>
             {sliders.length > 0
             && sliders.map(({ image, description }) => {
-              const imageUrl = image.sizes.xxl;
+              const imageUrl = image.sizes['twentytwenty-fullscreen'];
 
               return (
                 <Section
