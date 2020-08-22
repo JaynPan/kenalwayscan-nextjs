@@ -19,3 +19,8 @@ img {
   width: 100%;
   display: block;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}

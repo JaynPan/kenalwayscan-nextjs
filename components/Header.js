@@ -35,6 +35,7 @@ const Nav = styled.nav`
       text-transform: uppercase;
       list-style: none;
       font-family: Poppins;
+      white-space: nowrap;
 
       &:last-child {
         margin-right: 0;
