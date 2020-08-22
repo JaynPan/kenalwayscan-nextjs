@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Layout from '@/components/Layout';
 import { PAGE_TITLE } from '@/config/constants';
+import fetchAboutData from '@/lib/about/api';
 
 const AboutWrapper = styled.main`
   min-height: 100vh;
@@ -54,13 +55,7 @@ const Contact = styled.div`
   }
 `;
 
-export default function about() {
-  const dummyParagraph = `Paper City<br />for ZeroDotZero, i.c.w.<br /><br />
-  Maloe Brinkman Temporary Art Centre,<br />Eindhoven Dutch Design Week (2019)<br />
-  Part of YA Present! Sectie-C/Club-C,<br />Eindhoven Dutch Design Week (2018)<br /><br />
-  ARTY PARTY de Melkweg, Amsterdam (2018)<br />
-  Transition Showroom OPA, Arnhem (2016)'`;
-
+export default function about({ data }) {
   return (
     <>
       <Head>
@@ -71,38 +66,38 @@ export default function about() {
         <AboutWrapper>
           <Info>
             <Introduction>
-              is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              {data?.acf?.introduction}
             </Introduction>
-            <Section>
-              <Title>EXHIBITIONS</Title>
-              <Paragraph dangerouslySetInnerHTML={{ __html: dummyParagraph }} />
-            </Section>
-            <Section>
-              <Title>EXHIBITIONS</Title>
-              <Paragraph dangerouslySetInnerHTML={{ __html: dummyParagraph }} />
-            </Section>
+            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
+              <Section>
+                <Title>{title}</Title>
+                <Paragraph dangerouslySetInnerHTML={{ __html: paragraph }} />
+              </Section>
+            ))}
           </Info>
           <Contact>
             <h3>Contact</h3>
-            <p>akenz5393@gmail.com</p>
-            <p>+886 963533124</p>
+            <p>{data?.acf?.email}</p>
+            <p>{data?.acf?.phone}</p>
             <ul>
-              <li>
-                <a href="instagram">Instagram</a>
-              </li>
-              <li>
-                <a href="instagram">Facebook</a>
-              </li>
-              <li>
-                <a href="instagram">Facebook</a>
-              </li>
-              <li>
-                <a href="instagram">Facebook</a>
-              </li>
+              {data?.acf?.social_media && data?.acf?.social_media.map(({ name, url }) => (
+                <li key={name}>
+                  <a href={url}>{name}</a>
+                </li>
+              ))}
             </ul>
           </Contact>
         </AboutWrapper>
       </Layout>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const data = await fetchAboutData();
+
+  return {
+    props: { data },
+    revalidate: 10,
+  };
 }
