@@ -1,4 +1,4 @@
-import { getProject, getAllProjectsWithSlug } from '@/lib/api';
+import { getProject, getAllProjectsWithSlug } from '@/lib/api/project';
 
 export default function Project({ data }) {
   return (
@@ -24,7 +24,7 @@ export async function getStaticPaths() {
   const allSlugs = await getAllProjectsWithSlug();
 
   return {
-    paths: allSlugs.map((slug) => `/projects/${slug}`) || [],
+    paths: allSlugs.map((slug) => `/project/${slug}`) || [],
     fallback: true,
   };
 }

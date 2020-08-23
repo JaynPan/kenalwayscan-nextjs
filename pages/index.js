@@ -2,7 +2,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import 'scroll-behavior-polyfill';
 
-import fetchHomeData from '@/lib/home/api';
+import fetchHomeData from '@/lib/api/home';
 import { PAGE_TITLE } from '@/config/constants';
 import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Layout from '@/components/Layout';
 import { PAGE_TITLE } from '@/config/constants';
-import fetchAboutData from '@/lib/about/api';
+import fetchAboutData from '@/lib/api/about';
 
 const AboutWrapper = styled.main`
   min-height: 100vh;
