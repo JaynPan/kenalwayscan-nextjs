@@ -5,7 +5,6 @@ import 'scroll-behavior-polyfill';
 import fetchHomeData from '@/lib/api/home';
 import { PAGE_TITLE } from '@/config/constants';
 import Layout from '@/components/Layout';
-import Footer from '@/components/Footer';
 
 const HomeWrapper = styled.div`
   width: 100%;
@@ -47,7 +46,7 @@ export default function Home({ data }) {
         <title>{`Home | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
+      <Layout footerPosition="absolute">
         <HomeWrapper scroll-behavior="smooth">
           <main>
             {sliders.length > 0
@@ -67,7 +66,6 @@ export default function Home({ data }) {
             })}
           </main>
         </HomeWrapper>
-        <Footer />
       </Layout>
     </>
   );

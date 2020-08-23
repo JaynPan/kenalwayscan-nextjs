@@ -62,7 +62,7 @@ export default function about({ data }) {
         <title>{`About | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
+      <Layout footerPosition="relative">
         <AboutWrapper>
           <Info>
             <Introduction>
