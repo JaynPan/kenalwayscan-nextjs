@@ -46,7 +46,7 @@ export default function Home({ data }) {
         <title>{`Home | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout absolute>
+      <Layout absolute showCopyright={false}>
         <HomeWrapper scroll-behavior="smooth">
           <main>
             {sliders.length > 0
