@@ -12,8 +12,10 @@
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-image-gallery": "^1.0.8",
     "scroll-behavior-polyfill": "^2.0.13",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "uniqid": "^5.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
