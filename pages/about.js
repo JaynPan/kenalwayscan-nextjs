@@ -8,7 +8,6 @@ import fetchAboutData from '@/lib/api/about';
 const AboutWrapper = styled.main`
   min-height: 100vh;
   background-color: #fff;
-  padding: 141px 110px;
   display: flex;
   line-height: 1.5em;
   text-transform: uppercase;
@@ -68,8 +67,9 @@ export default function about({ data }) {
             <Introduction>
               {data?.acf?.introduction}
             </Introduction>
-            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
-              <Section>
+            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Section key={`${title}_${i}`}>
                 <Title>{title}</Title>
                 <Paragraph dangerouslySetInnerHTML={{ __html: paragraph }} />
               </Section>

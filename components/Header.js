@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { PAGE_MARGIN, BLEND_MODE } from '@/config/styles';
+import { BLEND_MODE, pageMargin } from '@/config/styles';
 import NavLink from '@/components/NavLink';
 
 const Nav = styled.nav`
+  ${pageMargin};
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  margin: ${PAGE_MARGIN};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -78,14 +78,14 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <Link as="/project" href="/project">
-            <a>project</a>
-          </Link>
+          <NavLink as="/project" href="/projects">
+            <a>projects</a>
+          </NavLink>
         </li>
         <li>
-          <Link as="/artworks" href="/artworks">
-            <a>art works</a>
-          </Link>
+          <NavLink as="/artworks" href="/artworks">
+            <a>artworks</a>
+          </NavLink>
         </li>
         <li>
           <Link as="/about" href="/about">

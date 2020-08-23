@@ -24,7 +24,7 @@ export async function getStaticPaths() {
   const allSlugs = await getAllProjectsWithSlug();
 
   return {
-    paths: allSlugs.map((slug) => `/project/${slug}`) || [],
+    paths: allSlugs.map((slug) => `/projects/${slug}`) || [],
     fallback: true,
   };
 }

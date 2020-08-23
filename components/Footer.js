@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import { PAGE_MARGIN, BLEND_MODE } from '@/config/styles';
+import { pageMargin, BLEND_MODE } from '@/config/styles';
 
 const FooterWrapper = styled.footer`
-  position: ${(props) => props.position};
+  ${pageMargin};
+  position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
   bottom: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  margin: ${PAGE_MARGIN};
   color: #fff;
   mix-blend-mode: ${BLEND_MODE};
   border-bottom: 1px solid #fff;
@@ -23,9 +23,9 @@ const Phone = styled.p`
   margin: 0 0 0 22px;
 `;
 
-export default function Footer({ position }) {
+export default function Footer({ absolute }) {
   return (
-    <FooterWrapper position={position}>
+    <FooterWrapper absolute={absolute}>
       <div style={{ flexGrow: 1 }}>
         <Link
           href="https://www.instagram.com/kenalwayscan/"
