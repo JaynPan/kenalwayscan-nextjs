@@ -70,8 +70,9 @@ export default function about({ data }) {
             <Introduction>
               {data?.acf?.introduction}
             </Introduction>
-            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
-              <Section>
+            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Section key={`${title}_${i}`}>
                 <Title>{title}</Title>
                 <Paragraph dangerouslySetInnerHTML={{ __html: paragraph }} />
               </Section>

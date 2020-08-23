@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 
 import { BLEND_MODE, pageMargin } from '@/config/styles';
@@ -78,13 +77,13 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <NavLink as="/project" href="/project">
-            <a>project</a>
+          <NavLink as="/projects" href="/projects">
+            <a>projects</a>
           </NavLink>
         </li>
         <li>
           <NavLink as="/artworks" href="/artworks">
-            <a>art works</a>
+            <a>artworks</a>
           </NavLink>
         </li>
         <li>

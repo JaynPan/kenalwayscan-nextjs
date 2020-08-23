@@ -4,7 +4,11 @@ import { pageMargin, BLEND_MODE } from '@/config/styles';
 
 const FooterWrapper = styled.footer`
   ${pageMargin};
+<<<<<<< HEAD
   position: ${(props) => props.position};
+=======
+  position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
+>>>>>>> new
   bottom: 0;
   left: 0;
   right: 0;
@@ -23,9 +27,9 @@ const Phone = styled.p`
   margin: 0 0 0 22px;
 `;
 
-export default function Footer({ position }) {
+export default function Footer({ absolute }) {
   return (
-    <FooterWrapper position={position}>
+    <FooterWrapper absolute={absolute}>
       <div style={{ flexGrow: 1 }}>
         <Link
           href="https://www.instagram.com/kenalwayscan/"
