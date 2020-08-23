@@ -78,19 +78,19 @@ export default function Header() {
           </NavLink>
         </li>
         <li>
-          <Link as="/project" href="/project">
+          <NavLink as="/project" href="/project">
             <a>project</a>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link as="/artworks" href="/artworks">
+          <NavLink as="/artworks" href="/artworks">
             <a>art works</a>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link as="/about" href="/about">
+          <NavLink as="/about" href="/about">
             <a>about</a>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </Nav>
