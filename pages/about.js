@@ -3,12 +3,14 @@ import styled from 'styled-components';
 
 import Layout from '@/components/Layout';
 import { PAGE_TITLE } from '@/config/constants';
+import { pageMargin, HEADER_HEIGHT } from '@/config/styles';
 import fetchAboutData from '@/lib/api/about';
 
 const AboutWrapper = styled.main`
+  ${pageMargin};
+  padding-top: ${HEADER_HEIGHT};
   min-height: 100vh;
   background-color: #fff;
-  padding: 141px 110px;
   display: flex;
   line-height: 1.5em;
   text-transform: uppercase;

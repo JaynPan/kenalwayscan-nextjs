@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import { PAGE_MARGIN, BLEND_MODE } from '@/config/styles';
+import { pageMargin, BLEND_MODE } from '@/config/styles';
 
 const FooterWrapper = styled.footer`
+  ${pageMargin};
   position: ${(props) => props.position};
   bottom: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  margin: ${PAGE_MARGIN};
   color: #fff;
   mix-blend-mode: ${BLEND_MODE};
   border-bottom: 1px solid #fff;
