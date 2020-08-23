@@ -1,17 +1,12 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import uniqid from 'uniqid';
 
 import Layout from '@/components/Layout';
 import { PAGE_TITLE } from '@/config/constants';
-import { pageMargin, HEADER_HEIGHT } from '@/config/styles';
 import fetchAboutData from '@/lib/api/about';
 
-const AboutWrapper = styled.main`
-  ${pageMargin};
-  padding-top: ${HEADER_HEIGHT};
-  min-height: 100vh;
-  background-color: #fff;
-  display: flex;
+const AboutWrapper = styled.div`
   line-height: 1.5em;
   text-transform: uppercase;
 `;
@@ -70,9 +65,8 @@ export default function about({ data }) {
             <Introduction>
               {data?.acf?.introduction}
             </Introduction>
-            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Section key={`${title}_${i}`}>
+            {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
+              <Section key={uniqid()}>
                 <Title>{title}</Title>
                 <Paragraph dangerouslySetInnerHTML={{ __html: paragraph }} />
               </Section>

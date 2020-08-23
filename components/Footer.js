@@ -4,11 +4,7 @@ import { pageMargin, BLEND_MODE } from '@/config/styles';
 
 const FooterWrapper = styled.footer`
   ${pageMargin};
-<<<<<<< HEAD
-  position: ${(props) => props.position};
-=======
   position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
->>>>>>> new
   bottom: 0;
   left: 0;
   right: 0;
