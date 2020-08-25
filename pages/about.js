@@ -9,6 +9,7 @@ import fetchAboutData from '@/lib/api/about';
 const AboutWrapper = styled.div`
   line-height: 1.5em;
   text-transform: uppercase;
+  display: flex;
 `;
 
 const Title = styled.h2`
