@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import Link from 'next/link';
 import 'scroll-behavior-polyfill';
 
 import fetchHomeData from '@/lib/api/home';
@@ -18,6 +19,7 @@ const HomeWrapper = styled.div`
 `;
 
 const Section = styled.section`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,18 +52,25 @@ export default function Home({ data }) {
         <HomeWrapper scroll-behavior="smooth">
           <main>
             {sliders.length > 0
-            && sliders.map(({ image, description }) => {
+            && sliders.map(({ image, description, link }) => {
               const imageUrl = image.sizes['twentytwenty-fullscreen'];
+              const slug = link.indexOf('projects/');
+              const linkToProject = slug !== -1 ? link.slice(slug) : '#';
 
               return (
-                <Section
-                  key={image.id}
-                  style={{
-                    background: `url('${imageUrl}') no-repeat center center/cover`,
-                  }}
+                <Link
+                  as={`/${linkToProject}`}
+                  href={`/${linkToProject}`}
                 >
-                  <Title>{description}</Title>
-                </Section>
+                  <Section
+                    key={image.id}
+                    style={{
+                      background: `url('${imageUrl}') no-repeat center center/cover`,
+                    }}
+                  >
+                    <Title>{description}</Title>
+                  </Section>
+                </Link>
               );
             })}
           </main>
