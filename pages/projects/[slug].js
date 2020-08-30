@@ -75,8 +75,7 @@ const RichEdit = styled.div`
 `;
 
 export default function Project({ data }) {
-  const { media, project } = data;
-  const title = project?.title?.rendered;
+  const title = data?.project?.title?.rendered;
 
   return (
     <ProjectWrapper>
@@ -90,7 +89,7 @@ export default function Project({ data }) {
       </Nav>
       <Banner
         style={{
-          background: `url('${media?.original}') no-repeat center center/cover`,
+          background: `url('${data?.media?.original}') no-repeat center center/cover`,
         }}
       >
         <h2>{title}</h2>
@@ -98,8 +97,8 @@ export default function Project({ data }) {
       <Content>
         <h3 className="title">{title}</h3>
         <div className="content">
-          {project.acf.content
-              && project.acf.content.map(({ editor, slider }) => {
+          {data?.project?.acf?.content
+              && data?.project?.acf?.content.map(({ editor, slider }) => {
                 if (editor) {
                   return (
                     <RichEdit
