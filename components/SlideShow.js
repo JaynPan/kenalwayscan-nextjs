@@ -2,7 +2,9 @@ import ImageGallery from 'react-image-gallery';
 
 export default function SlideShow({ data }) {
   const collectImgUrls = () => {
-    const imgUrls = data.map(({ image }) => {
+    const imgUrls = data
+    .filter(({ image }) => image)
+    .map(({ image }) => {
       const { thumbnail } = image.sizes;
       const original = image.url;
       return { original, thumbnail };

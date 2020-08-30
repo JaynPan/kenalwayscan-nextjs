@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { BLEND_MODE, pageMargin } from '@/config/styles';
 import NavLink from '@/components/NavLink';
+import Logo from '@/components/Logo';
 
 const Nav = styled.nav`
   ${pageMargin};
@@ -15,6 +16,7 @@ const Nav = styled.nav`
   color: #fff;
   font-size: 18px;
   mix-blend-mode: ${BLEND_MODE};
+  z-index: 100;
 
   h4, li {
     margin: 0;
@@ -50,26 +52,10 @@ const Nav = styled.nav`
   }
 `;
 
-const Logo = styled.h4`
-  font-family: Inter;
-  font-weight: 900;
-  position: relative;
-
-  span {
-    position: absolute;
-    right: -11px;
-    top: -7px;
-    font-size: 10px;
-  }
-`;
-
 export default function Header() {
   return (
     <Nav>
-      <Logo>
-        KENALWAYSCAN
-        <span>®</span>
-      </Logo>
+      <Logo />
       <ul>
         <li>
           <NavLink as="/" href="/">
