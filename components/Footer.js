@@ -15,7 +15,9 @@ const FooterWrapper = styled.footer`
 const Contact = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 4px;
   border-bottom: 1px solid #fff;
+  text-transform: uppercase;
 `;
 
 const Link = styled.a`
