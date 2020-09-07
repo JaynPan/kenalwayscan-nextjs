@@ -43,7 +43,7 @@ export default function Footer({ absolute, showCopyright = true }) {
         <Copyright>
           Kenalwayscan,
           <br />
-          All Rights Reserved ©2019
+          All Rights Reserved ©2020
         </Copyright>
       )}
       <Contact>
