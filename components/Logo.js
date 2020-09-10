@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const LogoWrapper = styled.h4`
   font-family: Inter;
   font-weight: 900;
   position: relative;
+  cursor: pointer;
 
   span {
     position: absolute;
@@ -15,9 +17,11 @@ const LogoWrapper = styled.h4`
 
 export default function Logo() {
   return (
-    <LogoWrapper>
-      KENALWAYSCAN
-      <span>®</span>
-    </LogoWrapper>
+    <Link as="/" href="/">
+      <LogoWrapper>
+        KENALWAYSCAN
+        <span>®</span>
+      </LogoWrapper>
+    </Link>
   );
 }
