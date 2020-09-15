@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
 
   const start = () => {
     const spinnerDom = document.querySelector('#logo-spinner');
-    console.log('start');
+    console.log(spinnerDom);
     spinnerDom.style.display = 'block';
     document.addEventListener('mousemove', methods.showSpinner(spinnerDom));
 
@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
 
   const end = () => {
     const spinnerDom = document.querySelector('#logo-spinner');
-    console.log('end');
+    console.log(spinnerDom);
     spinnerDom.style.display = 'none';
     document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
     // setLoading(false);
