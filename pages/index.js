@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import Router from 'next/router';
 import Link from 'next/link';
 import 'scroll-behavior-polyfill';
 
