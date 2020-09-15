@@ -43,24 +43,24 @@ const methods = {
 function MyApp({ Component, pageProps }) {
   // const [loading, setLoading] = React.useState(false);
 
+  const start = () => {
+    const spinnerDom = document.querySelector('#logo-spinner');
+    console.log('start');
+    spinnerDom.style.display = 'block';
+    document.addEventListener('mousemove', methods.showSpinner(spinnerDom));
+
+    // setLoading(true);
+  };
+
+  const end = () => {
+    const spinnerDom = document.querySelector('#logo-spinner');
+    console.log('end');
+    spinnerDom.style.display = 'none';
+    document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
+    // setLoading(false);
+  };
+
   useEffect(() => {
-    const start = () => {
-      const spinnerDom = document.querySelector('#logo-spinner');
-      console.log('start');
-      spinnerDom.style.display = 'block';
-      document.addEventListener('mousemove', methods.showSpinner(spinnerDom));
-
-      // setLoading(true);
-    };
-
-    const end = () => {
-      const spinnerDom = document.querySelector('#logo-spinner');
-      console.log('end');
-      spinnerDom.style.display = 'none';
-      document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
-      // setLoading(false);
-    };
-
     Router.events.on('routeChangeStart', start);
     Router.events.on('routeChangeComplete', end);
     Router.events.on('routeChangeError', end);
