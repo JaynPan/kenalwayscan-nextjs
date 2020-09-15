@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import Router from 'next/router';
 import Link from 'next/link';
 import 'scroll-behavior-polyfill';
 
@@ -59,11 +60,11 @@ export default function Home({ data }) {
 
               return (
                 <Link
+                  key={image.id}
                   as={`/${linkToProject}`}
                   href={`/${linkToProject}`}
                 >
                   <Section
-                    key={image.id}
                     style={{
                       background: `url('${imageUrl}') no-repeat center center/cover`,
                     }}
