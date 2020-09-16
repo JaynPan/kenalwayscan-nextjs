@@ -53,8 +53,10 @@ const start = () => {
 const end = () => {
   const spinnerDom = document.querySelector('#logo-spinner');
   console.log(spinnerDom);
-  spinnerDom.style.display = 'none';
-  document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
+  setTimeout(() => {
+    spinnerDom.style.display = 'none';
+    document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
+  }, 2000);
   // setLoading(false);
 };
 
