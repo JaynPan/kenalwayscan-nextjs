@@ -67,7 +67,22 @@ Router.events.on('routeChangeError', end);
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Spinner
+      <style jsx>
+        {`
+          #logo-spinner {
+            top: 0;
+            left: 0;
+            width: 15px;
+            display: none;
+            position: absolute;
+            z-index: 999;
+            animation:spin 1s linear infinite;
+          
+            @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+          }
+        `}
+      </style>
+      <img
         id="logo-spinner"
         src="/logo.png"
         alt="spinner"
