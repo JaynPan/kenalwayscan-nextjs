@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import Router from 'next/router';
 import styled from 'styled-components';
+import Head from 'next/head';
 import '@/styles/globals.css';
 import '@/styles/normalize.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -40,38 +41,28 @@ const methods = {
   },
 };
 
+const start = () => {
+  const spinnerDom = document.querySelector('#logo-spinner');
+  console.log(spinnerDom);
+  spinnerDom.style.display = 'block';
+  document.addEventListener('mousemove', methods.showSpinner(spinnerDom));
+
+  // setLoading(true);
+};
+
+const end = () => {
+  const spinnerDom = document.querySelector('#logo-spinner');
+  console.log(spinnerDom);
+  spinnerDom.style.display = 'none';
+  document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
+  // setLoading(false);
+};
+
+Router.events.on('routeChangeStart', start);
+Router.events.on('routeChangeComplete', end);
+Router.events.on('routeChangeError', end);
+
 function MyApp({ Component, pageProps }) {
-  // const [loading, setLoading] = React.useState(false);
-
-  const start = () => {
-    const spinnerDom = document.querySelector('#logo-spinner');
-    console.log(spinnerDom);
-    spinnerDom.style.display = 'block';
-    document.addEventListener('mousemove', methods.showSpinner(spinnerDom));
-
-    // setLoading(true);
-  };
-
-  const end = () => {
-    const spinnerDom = document.querySelector('#logo-spinner');
-    console.log(spinnerDom);
-    spinnerDom.style.display = 'none';
-    document.removeEventListener('mousemove', methods.showSpinner(spinnerDom));
-    // setLoading(false);
-  };
-
-  useEffect(() => {
-    Router.events.on('routeChangeStart', start);
-    Router.events.on('routeChangeComplete', end);
-    Router.events.on('routeChangeError', end);
-
-    return () => {
-      Router.events.off('routeChangeStart', start);
-      Router.events.off('routeChangeComplete', end);
-      Router.events.off('routeChangeError', end);
-    };
-  }, []);
-
   return (
     <>
       <Spinner
