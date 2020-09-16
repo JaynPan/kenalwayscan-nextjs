@@ -82,6 +82,14 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       </style>
+      <style global jsx>
+        {`
+          img {
+            width: 100%;
+            display: block;
+          }         
+        `}
+      </style>
       <img
         id="logo-spinner"
         src="/logo.png"
