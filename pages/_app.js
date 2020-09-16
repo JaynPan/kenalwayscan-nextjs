@@ -8,7 +8,9 @@ const start = () => {
 };
 
 const end = () => {
-  document.querySelector('body').style.cursor = 'auto';
+  setTimeout(() => {
+    document.querySelector('body').style.cursor = 'auto';
+  }, 500);
 };
 
 Router.events.on('routeChangeStart', start);
