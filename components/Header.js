@@ -21,6 +21,10 @@ const Nav = styled.nav`
   @media (max-width: ${SMALL_LAPTOP}) {
     flex-direction: column;
     align-items: flex-start;
+
+    .logo {
+      margin-bottom: 20px;
+    }
   }
 
   ul {
@@ -61,7 +65,7 @@ const Nav = styled.nav`
 export default function Header() {
   return (
     <Nav>
-      <Logo />
+      <Logo className="logo" />
       <ul>
         <li>
           <NavLink as="/" href="/">

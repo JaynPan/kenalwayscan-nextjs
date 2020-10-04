@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import uniqeId from 'uniqid';
 
-import { BLEND_MODE, pageMargin, pageHorizentalMargin } from '@/config/styles';
+import {
+ BLEND_MODE, pageMargin, pageHorizentalMargin, LANDSCAPE_TABLET, PORTRAIT_MOBILE,
+} from '@/config/styles';
 import Logo from '@/components/Logo';
 import SlideShow from '@/components/SlideShow';
 import Footer from '@/components/Footer';
@@ -27,23 +29,41 @@ const Nav = styled.nav`
   z-index: 100;
 `;
 
+const Back = styled.a`
+  font-family: 'Poppins', sans-serif;
+
+  @media (max-width: ${LANDSCAPE_TABLET}) {
+    font-size: 13px;
+  }
+`;
+
 const Banner = styled.section`
   height: 500px;
   position: relative;
+  text-align: center;
 
   h2 {
+    width: 80%;
     font-size: 36px;
     color: #fff;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    @media (max-width: ${PORTRAIT_MOBILE}) {
+      font-size: 26px;
+    }
   }
 `;
 
 const Content = styled.section`
   ${pageHorizentalMargin};
   padding-top: 100px;
+
+  @media (max-width: ${PORTRAIT_MOBILE}) {
+    padding-top: 40px;
+  }
 
   @import url("https://p.typekit.net/p.css?s=1&k=vqr3tuq&ht=tk&f=24425.24426.24427&a=13014026&app=typekit&e=css");
 
@@ -70,6 +90,10 @@ const Content = styled.section`
     font-size: 36px;
     padding-bottom: 20px;
     border-bottom: 1px solid #c4c4c4;
+
+    @media (max-width: ${PORTRAIT_MOBILE}) {
+      font-size: 26px;
+    }
   }
 `;
 
@@ -103,9 +127,9 @@ export default function Project({ data }) {
       <Nav>
         <Logo />
         <Link as="/projects" href="/projects">
-          <a href="/projects">
+          <Back href="/projects">
             BACK TO &quot;PROJECTS&quot;
-          </a>
+          </Back>
         </Link>
       </Nav>
       <Banner
