@@ -18,7 +18,12 @@ export const pageHorizentalMargin = css`
   margin-left: 110px;
   margin-right: 100px;
 
-  @media (max-width: ${PORTRAIT_TABLET}) {
+  @media (max-width: ${LANDSCAPE_TABLET}) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  @media (max-width: ${PORTRAIT_MOBILE}) {
     margin-left: 16px;
     margin-right: 16px;
   }
