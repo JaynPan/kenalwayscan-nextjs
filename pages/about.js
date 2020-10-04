@@ -5,11 +5,16 @@ import uniqid from 'uniqid';
 import Layout from '@/components/Layout';
 import { PAGE_TITLE } from '@/config/constants';
 import fetchAboutData from '@/lib/api/about';
+import { PORTRAIT_TABLET } from '@/config/styles';
 
 const AboutWrapper = styled.div`
   line-height: 1.5em;
   text-transform: uppercase;
   display: flex;
+
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h2`
@@ -25,6 +30,11 @@ const Paragraph = styled.div`
 const Info = styled.div`
   flex-basis: 700px;
   margin-right: 100px;
+
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    margin-top: 50px;
+    margin-right: 0;
+  }
 `;
 
 const Section = styled.section`
@@ -42,6 +52,24 @@ const Introduction = styled.section`
 `;
 
 const Contact = styled.div`
+  &.mobile {
+    display: none;
+  }
+  &.laptop {
+    display: block;
+  }
+
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    &.mobile {
+      display: block;
+      padding: 50px 0;
+      border-bottom: 1px solid #C4C4C4;
+    }
+    &.laptop {
+      display: none;
+    }
+  }
+
   h3 {
     margin-top: 0;
   }
@@ -66,6 +94,18 @@ export default function about({ data }) {
             <Introduction>
               {data?.acf?.introduction}
             </Introduction>
+            <Contact className="mobile">
+              <h3>Contact</h3>
+              <p>{data?.acf?.email}</p>
+              <p>{data?.acf?.phone}</p>
+              <ul>
+                {data?.acf?.social_media && data?.acf?.social_media.map(({ name, url }) => (
+                  <li key={name}>
+                    <a href={url}>{name}</a>
+                  </li>
+              ))}
+              </ul>
+            </Contact>
             {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
               <Section key={uniqid()}>
                 <Title>{title}</Title>
@@ -73,7 +113,7 @@ export default function about({ data }) {
               </Section>
             ))}
           </Info>
-          <Contact>
+          <Contact className="laptop">
             <h3>Contact</h3>
             <p>{data?.acf?.email}</p>
             <p>{data?.acf?.phone}</p>
