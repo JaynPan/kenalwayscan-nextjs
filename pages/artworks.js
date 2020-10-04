@@ -6,6 +6,7 @@ import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
 import { PAGE_TITLE } from '@/config/constants';
 import fetchArtworksData from '@/lib/api/artworks';
+import { PORTRAIT_TABLET } from '@/config/styles';
 
 const GRID_COLUMNS = 16;
 
@@ -18,6 +19,10 @@ const Container = styled.div`
 const Grid = styled.div`
   margin: 1rem 0 0 1rem;
   width: ${(props) => `calc(${(props.theme.grid / GRID_COLUMNS) * 100}% - 1rem`});
+
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    width: 100%;
+  }
 `;
 
 const Info = styled.div`
