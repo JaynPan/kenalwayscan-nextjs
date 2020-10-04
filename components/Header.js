@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BLEND_MODE, pageMargin } from '@/config/styles';
+import { BLEND_MODE, pageMargin, SMALL_LAPTOP } from '@/config/styles';
 import NavLink from '@/components/NavLink';
 import Logo from '@/components/Logo';
 
@@ -17,25 +17,21 @@ const Nav = styled.nav`
   font-size: 18px;
   mix-blend-mode: ${BLEND_MODE};
   z-index: 100;
-
-  h4, li {
-    margin: 0;
+  
+  @media (max-width: ${SMALL_LAPTOP}) {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   ul {
     display: flex;
-
-    h4 {
-      font-family: Inter;
-      font-weight: 900;
-      position: relative;
-    }
     
     li {
-      margin-right: 40px;
+      font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
+      margin: 0;
+      margin-right: 40px;
       list-style: none;
-      font-family: Poppins;
       white-space: nowrap;
 
       &:last-child {
@@ -47,6 +43,16 @@ const Nav = styled.nav`
         &.active {
           border-bottom: 1px solid #fff;
         }
+      }
+    }
+
+    @media (max-width: ${SMALL_LAPTOP}) {
+      width: 100%;
+      justify-content: space-between;
+
+      li {
+        margin-right: 0;
+        font-size: 13px;
       }
     }
   }
