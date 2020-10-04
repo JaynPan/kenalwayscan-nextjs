@@ -8,6 +8,11 @@ const Info = styled.div`
   font-size: 14px;
 `;
 
+const ArrowRight = styled.img`
+  width: 14px;
+  margin-right: 6px;
+`;
+
 export default function ProjectItem({
  slug, title, date, image,
 }) {
@@ -25,7 +30,8 @@ export default function ProjectItem({
           )}
           </ProgressiveImage>
           <Info>
-            <p>{title}</p>
+            <p style={{ flexGrow: 1 }}>{title}</p>
+            <ArrowRight src="/right-arrow.svg" alt="" />
             <p>{date.slice(0, 4)}</p>
           </Info>
         </div>

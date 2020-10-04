@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Layout from '@/components/Layout';
 import ProjectItem from '@/components/ProjectItem';
 import { PAGE_TITLE } from '@/config/constants';
+import { PORTRAIT_TABLET } from '@/config/styles';
 import { getAllProjects } from '@/lib/api/project';
 
 const ProjectsWrapper = styled.div`
@@ -16,6 +17,10 @@ const ProjectsWrapper = styled.div`
 const ItemWrapper = styled.div`
   margin: 2rem 0 0 2rem;
   width: calc(50% - 2rem);
+
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    width: 100%;
+  }
 `;
 
 export default function Projects({ data }) {
