@@ -5,6 +5,7 @@ import 'scroll-behavior-polyfill';
 
 import fetchHomeData from '@/lib/api/home';
 import { PAGE_TITLE } from '@/config/constants';
+import { LANDSCAPE_TABLET, PORTRAIT_TABLET } from '@/config/styles';
 import Layout from '@/components/Layout';
 
 const HomeWrapper = styled.div`
@@ -37,6 +38,13 @@ const Title = styled.h2`
   font-size: 2.5rem;
   white-space: pre-wrap;
   width: 70%;
+
+  @media (max-width: ${LANDSCAPE_TABLET}) {
+    font-size: 2rem;
+  }
+  @media (max-width: ${PORTRAIT_TABLET}) {
+    font-size: 1.5rem;
+  }
 `;
 
 export default function Home({ data }) {
