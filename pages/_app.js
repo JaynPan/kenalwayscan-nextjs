@@ -6,13 +6,8 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 const handlers = {};
 
-function isLaptopOS() {
-  if (navigator.appVersion.indexOf('Win') !== -1) return true;
-  if (navigator.appVersion.indexOf('Mac') !== -1) return true;
-  if (navigator.appVersion.indexOf('X11') !== -1) return true;
-  if (navigator.appVersion.indexOf('Linux') !== -1) return true;
-
-  return false;
+function deviceHasMouse() {
+  return matchMedia('(pointer:fine)').matches;
 }
 
 function assignSpinnerPostion(e, element) {
@@ -39,7 +34,7 @@ const methods = {
 };
 
 const start = () => {
-  if (!isLaptopOS()) {
+  if (!deviceHasMouse()) {
     return;
   }
 
@@ -51,7 +46,7 @@ const start = () => {
 };
 
 const end = () => {
-  if (!isLaptopOS()) {
+  if (!deviceHasMouse()) {
     return;
   }
 
