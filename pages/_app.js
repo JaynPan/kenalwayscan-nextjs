@@ -6,6 +6,15 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 const handlers = {};
 
+function isLaptopOS() {
+  if (navigator.appVersion.indexOf('Win') !== -1) return true;
+  if (navigator.appVersion.indexOf('Mac') !== -1) return true;
+  if (navigator.appVersion.indexOf('X11') !== -1) return true;
+  if (navigator.appVersion.indexOf('Linux') !== -1) return true;
+
+  return false;
+}
+
 function assignSpinnerPostion(e, element) {
   const cursorPosition = {
     left: e.pageX + 20,
@@ -30,6 +39,10 @@ const methods = {
 };
 
 const start = () => {
+  if (!isLaptopOS()) {
+    return;
+  }
+
   const spinnerEle = document.querySelector('#logo-spinner');
 
   spinnerEle.style.display = 'block';
@@ -38,6 +51,10 @@ const start = () => {
 };
 
 const end = () => {
+  if (!isLaptopOS()) {
+    return;
+  }
+
   const spinnerEle = document.querySelector('#logo-spinner');
 
   setTimeout(() => {
