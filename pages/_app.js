@@ -80,6 +80,13 @@ function MyApp({ Component, pageProps }) {
           }
         `}
       </style>
+      <img
+        id="logo-spinner"
+        src="/logo.png"
+        alt="spinner"
+      />
+      <Component {...pageProps} />
+      {/* place below spinner element to pevent spinner flickering */}
       <style global jsx>
         {`
           img {
@@ -88,12 +95,6 @@ function MyApp({ Component, pageProps }) {
           }         
         `}
       </style>
-      <img
-        id="logo-spinner"
-        src="/logo.png"
-        alt="spinner"
-      />
-      <Component {...pageProps} />
     </>
   );
 }
