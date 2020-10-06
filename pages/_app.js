@@ -38,7 +38,7 @@ const start = () => {
     return;
   }
 
-  const spinnerEle = document.querySelector('#logo-spinner');
+  const spinnerEle = document.querySelector('#logo-spinner-wrapper');
 
   spinnerEle.style.display = 'block';
   document.addEventListener('click', methods.showSpinner(spinnerEle));
@@ -50,7 +50,7 @@ const end = () => {
     return;
   }
 
-  const spinnerEle = document.querySelector('#logo-spinner');
+  const spinnerEle = document.querySelector('#logo-spinner-wrapper');
 
   setTimeout(() => {
     spinnerEle.style.display = 'none';
@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <style jsx>
         {`
-          #logo-spinner {
+          #logo-spinner-wrapper {
             top: 0;
             left: 0;
             width: 15px;
@@ -75,16 +75,13 @@ function MyApp({ Component, pageProps }) {
             position: absolute;
             z-index: 999;
             animation:spin 1s linear infinite;
-          
             @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
           }
         `}
       </style>
-      <img
-        id="logo-spinner"
-        src="/logo.png"
-        alt="spinner"
-      />
+      <div id="logo-spinner-wrapper">
+        <img src="/logo.png" alt="spinner" />
+      </div>
       <Component {...pageProps} />
       {/* place below spinner element to pevent spinner flickering */}
       <style global jsx>
