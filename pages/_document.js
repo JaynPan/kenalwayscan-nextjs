@@ -21,13 +21,24 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <title>My page</title>
+          <title>kenalwayscan</title>
           {/* Step 5: Output the styles in the head  */}
           {this.props.styleTags}
         </Head>
-        <body>
-          <Main />
-          <NextScript />
+        {/* prevent browser scroll bouncing */}
+        <body style={{ height: '100%', overflow: 'hidden' }}>
+          <div style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              left: 0,
+              right: 0,
+              overflow: 'auto',
+            }}
+          >
+            <Main />
+            <NextScript />
+          </div>
         </body>
       </html>
     );
