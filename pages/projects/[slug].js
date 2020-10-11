@@ -117,10 +117,35 @@ const RichEdit = styled.div`
     border-radius: 3px;
     background: rgba(250, 166, 166, 0.3);
   }
+
+  .iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 66.67%;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default function Project({ data }) {
   const title = data?.project?.title?.rendered;
+
+  const addClassToIframeParentTag = (str) => {
+    const indexOfIframe = str.indexOf('<p><iframe');
+
+    if (indexOfIframe !== -1) {
+      const newStr = str.splice(indexOfIframe + 2, 0, ' class="iframe-wrapper"');
+      return addClassToIframeParentTag(newStr);
+    }
+
+    return str;
+  };
 
   return (
     <ProjectWrapper>
@@ -145,10 +170,12 @@ export default function Project({ data }) {
           {data?.project?.acf?.content
               && data?.project?.acf?.content.map(({ editor, slider }) => {
                 if (editor) {
+                  const modifiyEditorStr = addClassToIframeParentTag(editor);
+
                   return (
                     <RichEdit
                       key={uniqeId()}
-                      dangerouslySetInnerHTML={{ __html: editor }}
+                      dangerouslySetInnerHTML={{ __html: modifiyEditorStr }}
                     />
                   );
                 } if (slider) {
