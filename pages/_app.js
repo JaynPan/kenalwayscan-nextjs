@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Router from 'next/router';
 
 import '@/styles/globals.css';
@@ -33,36 +34,40 @@ const methods = {
   },
 };
 
-const start = () => {
-  if (!deviceHasMouse()) {
-    return;
-  }
-
-  const spinnerEle = document.querySelector('#logo-spinner-wrapper');
-
-  spinnerEle.style.display = 'block';
-  document.addEventListener('click', methods.showSpinner(spinnerEle));
-  document.addEventListener('mousemove', methods.showSpinner(spinnerEle));
-};
-
-const end = () => {
-  if (!deviceHasMouse()) {
-    return;
-  }
-
-  const spinnerEle = document.querySelector('#logo-spinner-wrapper');
-
-  setTimeout(() => {
-    spinnerEle.style.display = 'none';
-    document.removeEventListener('mousemove', methods.showSpinner(spinnerEle));
-  }, 1000);
-};
-
-Router.events.on('routeChangeStart', start);
-Router.events.on('routeChangeComplete', end);
-Router.events.on('routeChangeError', end);
-
 function MyApp({ Component, pageProps }) {
+  const [loading, setLoading] = useState(false);
+
+  const start = () => {
+    setLoading(true);
+
+    if (!deviceHasMouse()) {
+      return;
+    }
+
+    const spinnerEle = document.querySelector('#logo-spinner-wrapper');
+
+    document.addEventListener('click', methods.showSpinner(spinnerEle));
+    document.addEventListener('mousemove', methods.showSpinner(spinnerEle));
+  };
+
+  const end = () => {
+    if (!deviceHasMouse()) {
+      setLoading(false);
+      return;
+    }
+
+    const spinnerEle = document.querySelector('#logo-spinner-wrapper');
+
+    setTimeout(() => {
+      setLoading(false);
+      document.removeEventListener('mousemove', methods.showSpinner(spinnerEle));
+    }, 1000);
+  };
+
+  Router.events.on('routeChangeStart', start);
+  Router.events.on('routeChangeComplete', end);
+  Router.events.on('routeChangeError', end);
+
   return (
     <>
       <style jsx>
@@ -76,11 +81,14 @@ function MyApp({ Component, pageProps }) {
             z-index: 999;
             animation:spin 1s linear infinite;
             @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+            display: ${loading ? 'block' : 'none'}
           }
         `}
       </style>
       <div id="logo-spinner-wrapper">
-        <img src="/logo.png" alt="spinner" />
+        {loading && (
+          <img src="/logo.png" alt="spinner" />
+          )}
       </div>
       <Component {...pageProps} />
       {/* place below spinner element to pevent spinner flickering */}
