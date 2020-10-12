@@ -133,6 +133,11 @@ const RichEdit = styled.div`
   }
 `;
 
+// eslint-disable-next-line no-extend-native
+String.prototype.splice = function strSplice(idx, rem, str) {
+  return this.slice(0, idx) + str + this.slice(idx + Math.abs(rem));
+};
+
 export default function Project({ data }) {
   const title = data?.project?.title?.rendered;
 
