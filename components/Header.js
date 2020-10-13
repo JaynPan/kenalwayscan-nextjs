@@ -45,7 +45,8 @@ const Nav = styled.nav`
       a {
         &:hover,
         &.active {
-          border-bottom: 1px solid #fff;
+          border-bottom: 1px solid #22DA6B;
+          color: #22DA6B;
         }
       }
     }
