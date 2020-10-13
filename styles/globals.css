@@ -21,3 +21,16 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+/* slide show dot style */
+.slide-bullet {
+  background-color: #8e8e8e !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 3px !important;
+  margin: 0 3px !important;
+}
+
+.slide-bullet.active {
+  background-color: #ddd !important;
+}

@@ -7,7 +7,7 @@ export default function SlideShow({ data }) {
     .map(({ image }) => {
       const { thumbnail } = image.sizes;
       const original = image.url;
-      return { original, thumbnail };
+      return { original, thumbnail, bulletClass: 'slide-bullet' };
     });
 
     return imgUrls;
