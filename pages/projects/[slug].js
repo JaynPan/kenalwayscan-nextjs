@@ -61,9 +61,14 @@ const Banner = styled.section`
 const Content = styled.section`
   ${pageHorizentalMargin};
   padding-top: 100px;
+  max-width: 1000px;
 
   @media (max-width: ${PORTRAIT_MOBILE}) {
     padding-top: 40px;
+  }
+
+  @media (min-width: 1200px) {
+    margin: 0 auto;
   }
 
   @import url("https://p.typekit.net/p.css?s=1&k=vqr3tuq&ht=tk&f=24425.24426.24427&a=13014026&app=typekit&e=css");

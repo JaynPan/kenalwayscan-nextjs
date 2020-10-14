@@ -16,7 +16,7 @@ export const pageVerticalMargin = css`
 
 export const pageHorizentalMargin = css`
   margin-left: 110px;
-  margin-right: 100px;
+  margin-right: 110px;
 
   @media (max-width: ${LANDSCAPE_TABLET}) {
     margin-left: 5%;
