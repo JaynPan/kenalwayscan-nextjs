@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import uniqid from 'uniqid';
 
 import Layout from '@/components/Layout';
+import RichEdit from '@/components/RichEdit';
 import { PAGE_TITLE } from '@/config/constants';
 import fetchAboutData from '@/lib/api/about';
 import { PORTRAIT_TABLET } from '@/config/styles';
@@ -92,7 +93,7 @@ export default function about({ data }) {
         <AboutWrapper>
           <Info>
             <Introduction>
-              {data?.acf?.introduction}
+              <RichEdit dangerouslySetInnerHTML={{ __html: data?.acf?.introduction }} />
             </Introduction>
             <Contact className="mobile">
               <h3>Contact</h3>
