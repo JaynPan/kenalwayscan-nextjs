@@ -17,6 +17,10 @@ const Nav = styled.nav`
   font-size: 18px;
   mix-blend-mode: ${BLEND_MODE};
   z-index: 100;
+
+  @media (pointer: fine) {
+    padding-right: 17px;
+  }
   
   @media (max-width: ${SMALL_LAPTOP}) {
     flex-direction: column;
