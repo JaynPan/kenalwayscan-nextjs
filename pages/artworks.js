@@ -4,6 +4,7 @@ import uniqid from 'uniqid';
 
 import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
+import { RatioWrapper, RatioInnerStyle } from '@/components/RatioWrapper';
 import { PAGE_TITLE } from '@/config/constants';
 import fetchArtworksData from '@/lib/api/artworks';
 import { PORTRAIT_TABLET } from '@/config/styles';
@@ -32,6 +33,10 @@ const Info = styled.div`
 
 const Video = styled.video`
   object-fit: cover;
+`;
+
+const Img = styled.img`
+  ${RatioInnerStyle}
 `;
 
 Grid.defaultProps = {
@@ -74,7 +79,15 @@ export default function Artworks({ data }) {
                     />
                   </Video>
                 )}
-                {photo && <img src={photo.url} alt="img" loading="lazy" />}
+                {photo && (
+                  <RatioWrapper ratio={(photo.height / photo.width) * 100}>
+                    <Img
+                      src={photo.url}
+                      alt="img"
+                      loading="lazy"
+                    />
+                  </RatioWrapper>
+                )}
                 <Info>
                   <p>{title}</p>
                   <p>{date}</p>

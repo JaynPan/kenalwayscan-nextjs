@@ -1,4 +1,11 @@
 import ImageGallery from 'react-image-gallery';
+import styled from 'styled-components';
+
+import { RatioWrapper, RatioInnerStyle } from '@/components/RatioWrapper';
+
+const SlideWrapper = styled.div`
+  ${RatioInnerStyle}
+`;
 
 export default function SlideShow({ data }) {
   const collectImgUrls = () => {
@@ -13,18 +20,22 @@ export default function SlideShow({ data }) {
     return imgUrls;
   };
 
+  const { height, width } = data[0].image;
+
   return (
-    <div>
-      <ImageGallery
-        lazyLoad
-        showNav={false}
-        showThumbnails={false}
-        showFullscreenButton={false}
-        showPlayButton={false}
-        showBullets
-        autoPlay
-        items={collectImgUrls()}
-      />
-    </div>
+    <RatioWrapper ratio={(height / width) * 100}>
+      <SlideWrapper>
+        <ImageGallery
+          lazyLoad
+          showNav={false}
+          showThumbnails={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          showBullets
+          autoPlay
+          items={collectImgUrls()}
+        />
+      </SlideWrapper>
+    </RatioWrapper>
   );
 }
