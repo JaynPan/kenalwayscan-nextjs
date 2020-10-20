@@ -13,7 +13,7 @@ function deviceHasMouse() {
 
 function assignSpinnerPostion(e, element) {
   const cursorPosition = {
-    left: e.pageX + 20,
+    left: e.pageX + 15,
     top: e.pageY,
   };
 

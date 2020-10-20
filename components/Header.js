@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-import { BLEND_MODE, pageMargin, SMALL_LAPTOP } from '@/config/styles';
+import {
+ BLEND_MODE, pageMargin, SMALL_LAPTOP,
+} from '@/config/styles';
 import NavLink from '@/components/NavLink';
 import Logo from '@/components/Logo';
 
@@ -27,7 +29,7 @@ const Nav = styled.nav`
     align-items: flex-start;
 
     .logo {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 
@@ -41,6 +43,7 @@ const Nav = styled.nav`
       margin-right: 40px;
       list-style: none;
       white-space: nowrap;
+      font-size: 15px;
 
       &:last-child {
         margin-right: 0;

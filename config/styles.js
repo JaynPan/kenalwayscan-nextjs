@@ -12,16 +12,16 @@ export const PORTRAIT_MOBILE = '430px';
 export const pageVerticalMargin = css`
   margin-top: 40px;
   margin-bottom: 40px;
+
+  @media (max-width: ${PORTRAIT_MOBILE}) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 `;
 
 export const pageHorizentalMargin = css`
-  margin-left: 110px;
-  margin-right: 110px;
-
-  @media (max-width: ${LANDSCAPE_TABLET}) {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
+  margin-left: 5%;
+  margin-right: 5%;
 
   @media (max-width: ${PORTRAIT_MOBILE}) {
     margin-left: 16px;
