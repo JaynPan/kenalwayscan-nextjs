@@ -28,6 +28,7 @@ const Section = styled.section`
   text-align: center;
   width: 100%;
   height: 100vh;
+  position: relative;
 
   /* Scroll Snap */
   scroll-snap-align: center;
@@ -38,6 +39,7 @@ const Title = styled.h2`
   font-size: 2.5rem;
   white-space: pre-wrap;
   width: 70%;
+  z-index: 2;
 
   @media (max-width: ${LANDSCAPE_TABLET}) {
     font-size: 2rem;
@@ -45,6 +47,15 @@ const Title = styled.h2`
   @media (max-width: ${PORTRAIT_TABLET}) {
     font-size: 1.5rem;
   }
+`;
+
+const Video = styled.video`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export default function Home({ data }) {
@@ -60,8 +71,10 @@ export default function Home({ data }) {
         <HomeWrapper scroll-behavior="smooth">
           <main>
             {sliders.length > 0
-            && sliders.map(({ image, description, link }) => {
-              const imageUrl = image.sizes['twentytwenty-fullscreen'];
+            && sliders.map(({
+              image, description, link, video,
+            }) => {
+              const imageUrl = image ? image.sizes['twentytwenty-fullscreen'] : '';
               const slug = link.indexOf('projects/');
               const linkToProject = slug !== -1 ? link.slice(slug) : '#';
 
@@ -73,9 +86,14 @@ export default function Home({ data }) {
                 >
                   <Section
                     style={{
-                      background: `url('${imageUrl}') no-repeat center center/cover`,
-                    }}
+                        background: `url('${imageUrl}') no-repeat center center/cover`,
+                      }}
                   >
+                    {video && (
+                      <Video autoPlay muted loop id="myVideo">
+                        <source src={video} type="video/mp4" />
+                      </Video>
+                    )}
                     <Title>{description}</Title>
                   </Section>
                 </Link>
