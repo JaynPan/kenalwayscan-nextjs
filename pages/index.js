@@ -90,7 +90,7 @@ export default function Home({ data }) {
                       }}
                   >
                     {video && (
-                      <Video autoPlay muted loop id="myVideo">
+                      <Video autoPlay muted loop playsInline>
                         <source src={video} type="video/mp4" />
                       </Video>
                     )}
