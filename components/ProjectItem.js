@@ -17,7 +17,13 @@ const ArrowRight = styled.img`
 
 const Img = styled.img`
   ${RatioInnerStyle};
-  filter: ${(props) => (props.loading ? 'blur(5px)' : 'none')};
+  filter: ${(props) => (props.loading ? 'blur(2px)' : 'none')};
+`;
+
+const Wrapper = styled.div`
+  &:hover {
+    opacity: 0.8
+  }
 `;
 
 export default function ProjectItem({
@@ -26,7 +32,7 @@ export default function ProjectItem({
   return (
     <Link as={`/projects/${slug}`} href={`/projects/${slug}`}>
       <a>
-        <div>
+        <Wrapper>
           <RatioWrapper ratio={66.67}>
             <ProgressiveImage src={image?.original} placeholder={image?.placeholder}>
               {(src, loading) => (
@@ -43,7 +49,7 @@ export default function ProjectItem({
             <ArrowRight src="/right-arrow.svg" alt="" />
             <p>{date.slice(0, 4)}</p>
           </Info>
-        </div>
+        </Wrapper>
       </a>
     </Link>
   );

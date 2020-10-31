@@ -33,6 +33,10 @@ const Nav = styled.nav`
 const Back = styled.a`
   font-family: 'Poppins', sans-serif;
 
+  .text {
+    border-bottom: 1px solid;
+  }
+
   @media (max-width: ${LANDSCAPE_TABLET}) {
     font-size: 13px;
   }
@@ -128,7 +132,9 @@ export default function Project({ data }) {
         <Logo />
         <Link as="/projects" href="/projects">
           <Back href="/projects">
-            BACK TO &quot;PROJECTS&quot;
+            →
+            {' '}
+            <span className="text">BACK TO &quot;PROJECTS&quot;</span>
           </Back>
         </Link>
       </Nav>

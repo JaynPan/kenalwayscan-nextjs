@@ -45,15 +45,35 @@ const Nav = styled.nav`
       white-space: nowrap;
       font-size: 15px;
 
-      &:last-child {
+      &:last-child { 
         margin-right: 0;
       }
 
       a {
-        &:hover,
-        &.active {
-          border-bottom: 1px solid #22DA6B;
+        display: flex;
+
+        &:hover {
           color: #22DA6B;
+        }
+
+        .text {
+          &:hover {
+            border-bottom: 1px solid #22DA6B;
+          }
+        }
+
+        .arrow {
+          display: none;
+          margin-right: 6px;
+        }
+
+        &.active {
+          .text {
+            border-bottom: 1px solid;
+          }
+          .arrow {
+            display: block;
+          }
         }
       }
     }
@@ -70,31 +90,28 @@ const Nav = styled.nav`
   }
 `;
 
+const routes = [
+  { slug: '/', title: 'overview' },
+  { slug: '/projects', title: 'projects' },
+  { slug: '/artworks', title: 'artworks' },
+  { slug: '/about', title: 'about' },
+];
+
 export default function Header() {
   return (
     <Nav>
       <Logo className="logo" />
       <ul>
-        <li>
-          <NavLink as="/" href="/">
-            <a>Overview</a>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink as="/projects" href="/projects">
-            <a>projects</a>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink as="/artworks" href="/artworks">
-            <a>artworks</a>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink as="/about" href="/about">
-            <a>about</a>
-          </NavLink>
-        </li>
+        {routes.map(({ slug, title }) => (
+          <li>
+            <NavLink as={slug} href={slug}>
+              <a>
+                <span className="arrow">→</span>
+                <span className="text">{title}</span>
+              </a>
+            </NavLink>
+          </li>
+        ))}
       </ul>
     </Nav>
   );

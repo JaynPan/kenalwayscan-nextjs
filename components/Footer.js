@@ -16,6 +16,7 @@ const FooterWrapper = styled.footer`
 
   @media (max-width: ${SMALL_LAPTOP}) {
     font-size: 13px;
+    margin-bottom: 20px;
   }
 `;
 
