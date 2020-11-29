@@ -1,12 +1,18 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
-import 'scroll-behavior-polyfill';
+// import 'scroll-behavior-polyfill';
 
 import fetchHomeData from '@/lib/api/home';
 import { PAGE_TITLE } from '@/config/constants';
 import { LANDSCAPE_TABLET, PORTRAIT_TABLET } from '@/config/styles';
 import Layout from '@/components/Layout';
+
+// (async () => {
+//   if (!('scrollBehavior' in document.documentElement.style)) {
+//     await import('scroll-behavior-polyfill');
+//   }
+// })();
 
 const HomeWrapper = styled.div`
   width: 100%;
@@ -74,7 +80,6 @@ export default function Home({ data }) {
             && sliders.map(({
               image, description, link, video,
             }) => {
-              const imageUrl = image ? image.sizes['twentytwenty-fullscreen'] : '';
               const slug = link.indexOf('projects/');
               const linkToProject = slug !== -1 ? link.slice(slug) : '#';
 
@@ -86,7 +91,7 @@ export default function Home({ data }) {
                 >
                   <Section
                     style={{
-                        background: `url('${imageUrl}') no-repeat center center/cover`,
+                        background: `url('${image.url}') no-repeat center center/cover`,
                       }}
                   >
                     {video && (
