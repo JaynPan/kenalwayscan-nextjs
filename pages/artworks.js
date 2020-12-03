@@ -32,7 +32,9 @@ const Info = styled.div`
 `;
 
 const Video = styled.video`
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top;
+  height: auto;
 `;
 
 const Img = styled.img`
