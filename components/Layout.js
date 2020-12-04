@@ -24,7 +24,7 @@ export default function Layout({ children, absolute = false, showCopyright }) {
       <Main absolute={absolute}>
         {children}
       </Main>
-      <Footer absolute={absolute} showCopyright={showCopyright} />
+      <Footer />
     </LayoutContainer>
   );
 }
