@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 import {
- pageMargin, BLEND_MODE, SMALL_LAPTOP, PORTRAIT_TABLET, PORTRAIT_MOBILE,
+ pageMargin, BLEND_MODE, SMALL_LAPTOP, PORTRAIT_TABLET,
 } from '@/config/styles';
 
 const FooterWrapper = styled.footer`
   ${pageMargin};
   font-family: 'Poppins', sans-serif;
-  position: ${(props) => (props.absolute ? 'absolute' : 'relative')};
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
@@ -39,33 +39,9 @@ const Phone = styled.p`
   }
 `;
 
-const Copyright = styled.p`
-  text-align: center;
-  font-size: 36px;
-  font-weight: 500;
-  margin: 90px 0;
-  line-height: 1.5em;
-
-  @media (max-width: ${PORTRAIT_TABLET}) {
-    font-size: 24px;
-    margin: 60px 0;
-  }
-  @media (max-width: ${PORTRAIT_MOBILE}) {
-    font-size: 18px;
-    margin: 40px 0;
-  }
-`;
-
-export default function Footer({ absolute, showCopyright = true }) {
+export default function Footer() {
   return (
-    <FooterWrapper absolute={absolute}>
-      {showCopyright && (
-        <Copyright>
-          Kenalwayscan,
-          <br />
-          All Rights Reserved ©2019
-        </Copyright>
-      )}
+    <FooterWrapper>
       <Contact>
         <div style={{ flexGrow: 1 }}>
           <Link

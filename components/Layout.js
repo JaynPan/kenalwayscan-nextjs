@@ -17,14 +17,14 @@ const Main = styled.main`
   ${(props) => !props.absolute && `padding-top: ${HEADER_HEIGHT};`};
 `;
 
-export default function Layout({ children, absolute = false, showCopyright }) {
+export default function Layout({ children, absolute = false }) {
   return (
     <LayoutContainer>
       <Header />
       <Main absolute={absolute}>
         {children}
       </Main>
-      <Footer absolute={absolute} showCopyright={showCopyright} />
+      <Footer />
     </LayoutContainer>
   );
 }
