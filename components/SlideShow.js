@@ -29,7 +29,7 @@ export default function SlideShow({ data }) {
           lazyLoad
           showNav={false}
           showThumbnails={false}
-          showFullscreenButton={false}
+          showFullscreenButton
           showPlayButton={false}
           showBullets
           autoPlay

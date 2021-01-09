@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
+import Lightbox from 'react-image-lightbox';
 
 import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
@@ -48,6 +50,8 @@ Grid.defaultProps = {
 };
 
 export default function Artworks({ data }) {
+  const [isLightboxOpen, toggleLightbox] = useState(false);
+
   return (
     <>
       <Head>
@@ -82,13 +86,26 @@ export default function Artworks({ data }) {
                   </Video>
                 )}
                 {photo && (
-                  <RatioWrapper ratio={(photo.height / photo.width) * 100}>
-                    <Img
-                      src={photo.url}
-                      alt="img"
-                      loading="lazy"
-                    />
-                  </RatioWrapper>
+                  <>
+                    <RatioWrapper
+                      style={{ cursor: 'pointer' }}
+                      ratio={(photo.height / photo.width) * 100}
+                      onClick={() => toggleLightbox(true)}
+                    >
+                      <Img
+                        src={photo.url}
+                        alt="img"
+                        loading="lazy"
+                      />
+                    </RatioWrapper>
+
+                    {isLightboxOpen && (
+                      <Lightbox
+                        mainSrc={photo.url}
+                        onCloseRequest={() => toggleLightbox(false)}
+                      />
+                    )}
+                  </>
                 )}
                 <Info>
                   <p>{title}</p>

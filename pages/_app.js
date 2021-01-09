@@ -4,6 +4,7 @@ import Router from 'next/router';
 import '@/styles/globals.css';
 import '@/styles/normalize.css';
 import 'react-image-gallery/styles/css/image-gallery.css';
+import 'react-image-lightbox/style.css';
 
 const handlers = {};
 

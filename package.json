@@ -7,11 +7,12 @@
     "build": "next build"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "next": "9.5.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-image-gallery": "^1.0.8",
+    "react-image-lightbox": "^5.1.1",
     "react-progressive-image": "^0.6.0",
     "scroll-behavior-polyfill": "^2.0.13",
     "styled-components": "^5.1.1",
