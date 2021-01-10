@@ -5,6 +5,26 @@ import { RatioWrapper, RatioInnerStyle } from '@/components/RatioWrapper';
 
 const SlideWrapper = styled.div`
   ${RatioInnerStyle}
+
+  // align vertically center while in fullscreen mode
+  .image-gallery {
+    display: flex;
+    align-items: center;
+  }
+
+  // change fullscreen icon styles
+  .image-gallery-fullscreen-button {
+    filter: none;
+
+    &:hover {
+      color: #ddd;
+    }
+
+    svg {
+      height: 18px;
+      width: 18px;
+    }
+  }
 `;
 
 export default function SlideShow({ data }) {
