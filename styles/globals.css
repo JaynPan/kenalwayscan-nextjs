@@ -34,3 +34,12 @@ ul {
 .slide-bullet.active {
   background-color: #ddd !important;
 }
+
+/* react-lightbox styles */
+.ril__image {
+  width: auto !important;
+}
+.ril__builtinButton {
+  transform: scale(0.75);
+  width: 30px !important;
+}
