@@ -76,6 +76,14 @@ export default function Home({ data }) {
       <Layout absolute showCopyright={false}>
         <HomeWrapper scroll-behavior="smooth">
           <main>
+            <Section>
+              <iframe
+                title="canvas"
+                src="https://openprocessing.org/sketch/1134735/embed/"
+                width="100%"
+                height="100%"
+              />
+            </Section>
             {sliders.length > 0
             && sliders.map(({
               image, description, link, video,
