@@ -36,7 +36,7 @@ export default function Projects({ data }) {
             <ProjectItem
               title="Welcome aboard 2.0"
               date="2021"
-              image="/2.png"
+              image={{ original: '/flight.jpg' }}
               slug="flight"
             />
           </ItemWrapper>

@@ -39,10 +39,6 @@ const Back = styled.a`
   }
 `;
 
-const Content = styled.div`
-  margin-top: 500px;
-`;
-
 export default function Flight() {
   return (
     <ProjectWrapper>
