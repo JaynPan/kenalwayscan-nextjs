@@ -32,6 +32,14 @@ export default function Projects({ data }) {
       </Head>
       <Layout>
         <ProjectsWrapper>
+          <ItemWrapper>
+            <ProjectItem
+              title="Welcome aboard 2.0"
+              date="2021"
+              image="/2.png"
+              slug="flight"
+            />
+          </ItemWrapper>
           {data.map(({
             slug, date, title, image,
           }) => (
