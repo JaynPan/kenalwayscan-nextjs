@@ -70,7 +70,6 @@ export default function Nektar() {
       p5.text('KENALWAYSCAN', 500, 1000);
       p5.noStroke();
       p5.fill(255, p5.mouseX, 0);
-      // const x1 = p5.map(p5.mouseX, p5.mouseY, 20, 20);
       p5.rect(p5.mouseX, p5.mouseY, 15, 15);
 
       p5.noStroke();
@@ -78,14 +77,12 @@ export default function Nektar() {
       const x1 = p5.map(p5.mouseX, p5.mouseY, 20, 20);
       p5.rect(p5.mouseX, p5.mouseY, 15, 15);
 
-      /// //////////
+      var volume = p5.map(p5.mouseY, 0, p5.width, 0, 1);
+      volume = p5.constrain(volume, 0.8, 0.1);
+      song2.amp(volume);
 
-      // var volume = p5.map(p5.mouseY, 0, p5.width, 0, 1);
-      // volume = p5.constrain(p5.volume, 0.8, 0.1);
-      // song2.p5.amp(p5.volume);
-
-      // var speed = p5.map(p5.mouseY, 0.1, p5.height, 0, 2);
-      // song2.p5.rate(p5.speed);
+      var speed = p5.map(p5.mouseY, 0.1, p5.height, 0, 2);
+      song2.rate(speed);
 
       p5.background(img2);
 
@@ -95,7 +92,6 @@ export default function Nektar() {
         x += 2;
       }
       x += p5.floor(p5.movedX / 20);
-      // background(237, 34, 93);
       p5.fill(0, 0, 255);
       p5.ellipse(x, 100, 50, 50);
 
@@ -105,7 +101,6 @@ export default function Nektar() {
         y += 2;
       }
       y += p5.floor(p5.movedX / 4);
-      // background(237, 34, 93);
       p5.fill(0, 0, 255);
       p5.ellipse(y, 500, 50, 50);
 
