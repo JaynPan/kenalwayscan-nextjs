@@ -99,7 +99,7 @@ export default function Header() {
       <Logo className="logo" />
       <ul>
         {routes.map(({ slug, title }) => (
-          <li>
+          <li key={slug}>
             <NavLink as={slug} href={slug}>
               <a>
                 <span className="arrow">→</span>

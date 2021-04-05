@@ -17,7 +17,7 @@ const ArrowRight = styled.img`
 
 const Img = styled.img`
   ${RatioInnerStyle};
-  filter: ${(props) => (props.loading ? 'blur(2px)' : 'none')};
+  filter: ${(props) => (props.$loading ? 'blur(2px)' : 'none')};
 `;
 
 const Wrapper = styled.div`
@@ -39,7 +39,7 @@ export default function ProjectItem({
                 <Img
                   src={src}
                   alt={title}
-                  loading={loading}
+                  $loading={loading}
                 />
               )}
             </ProgressiveImage>
