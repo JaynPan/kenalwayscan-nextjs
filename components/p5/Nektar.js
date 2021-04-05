@@ -1,21 +1,34 @@
-/* eslint-disable  */
+/* eslint-disable */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
   margin: 0 auto;
   width: 1000px;
-  padding: 200px 0;
-`
+  position: relative;
+`;
 
 export default function Nektar() {
+  let img;
+  let img2;
+  let bilden;
+  let song2;
+  let welcome;
+  let capture;
+  let button = null;
+
   const Sketch = (p5) => {
-    let img;
-    let img2;
-    let bilden;
-    let song2;
-    let welcome;
-    let capture;
+    const triggerSound = () => {
+      if (song2.isPlaying()) {
+        song2.pause();
+        welcome.pause();
+        song2.setLoop(false);
+      } else {
+        song2.play();
+        welcome.play();
+        song2.setLoop(true);
+      }
+    };
 
     p5.preload = () => {
       img = p5.loadImage('/ican4.jpeg');
@@ -37,13 +50,14 @@ export default function Nektar() {
       img.resize(1000, 1000);
       p5.image(img, 0, 0);
       p5.ellipseMode(p5.CENTER);
-      song2.loop();
-      welcome.loop();
-
       capture = p5.createCapture(p5.VIDEO);
 
       p5.stroke(255, 0, 0);
       p5.line(900, 900, 100, 100);
+      button = p5.createButton('聲音');
+      button.parent('canvas-container');
+      button.position(474, 487, 'absolute');
+      button.mousePressed(triggerSound);
     };
 
     p5.draw = () => {
@@ -77,11 +91,11 @@ export default function Nektar() {
       const x1 = p5.map(p5.mouseX, p5.mouseY, 20, 20);
       p5.rect(p5.mouseX, p5.mouseY, 15, 15);
 
-      var volume = p5.map(p5.mouseY, 0, p5.width, 0, 1);
+      let volume = p5.map(p5.mouseY, 0, p5.width, 0, 1);
       volume = p5.constrain(volume, 0.8, 0.1);
       song2.amp(volume);
 
-      var speed = p5.map(p5.mouseY, 0.1, p5.height, 0, 2);
+      const speed = p5.map(p5.mouseY, 0.1, p5.height, 0, 2);
       song2.rate(speed);
 
       p5.background(img2);
@@ -120,8 +134,19 @@ export default function Nektar() {
     const p5 = require('p5');
     window.p5 = p5;
     require('p5/lib/addons/p5.sound');
-    new p5(Sketch);
+    const newSketch = new p5(Sketch);
+
+    return () => {
+      newSketch.remove();
+      newSketch.removeElements();
+      song2.stop();
+      welcome.stop();
+    };
   }, []);
 
-  return <Wrapper id="canvas-container"></Wrapper>;
+  return (
+    <div style={{ padding: '200px 0' }}>
+      <Wrapper id="canvas-container" />
+    </div>
+);
 }
