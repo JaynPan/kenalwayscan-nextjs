@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
-import Lightbox from 'react-image-lightbox';
 
 import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
@@ -21,7 +19,7 @@ const Container = styled.div`
 
 const Grid = styled.div`
   margin: 1rem 0 0 1rem;
-  width: ${(props) => `calc(${(props.theme.grid / GRID_COLUMNS) * 100}% - 1rem`});
+  width: ${({ theme }) => `calc(${(theme.grid / GRID_COLUMNS) * 100}% - 1rem)`};
 
   @media (max-width: ${PORTRAIT_TABLET}) {
     width: 100%;
@@ -50,8 +48,6 @@ Grid.defaultProps = {
 };
 
 export default function Artworks({ data }) {
-  const [isLightboxOpen, toggleLightbox] = useState(false);
-
   return (
     <>
       <Head>
@@ -86,26 +82,13 @@ export default function Artworks({ data }) {
                   </Video>
                 )}
                 {photo && (
-                  <>
-                    <RatioWrapper
-                      style={{ cursor: 'pointer' }}
-                      ratio={(photo.height / photo.width) * 100}
-                      onClick={() => toggleLightbox(true)}
-                    >
-                      <Img
-                        src={photo.url}
-                        alt="img"
-                        loading="lazy"
-                      />
-                    </RatioWrapper>
-
-                    {isLightboxOpen && (
-                      <Lightbox
-                        mainSrc={photo.url}
-                        onCloseRequest={() => toggleLightbox(false)}
-                      />
-                    )}
-                  </>
+                  <RatioWrapper ratio={(photo.height / photo.width) * 100}>
+                    <Img
+                      src={photo.url}
+                      alt="img"
+                      loading="lazy"
+                    />
+                  </RatioWrapper>
                 )}
                 <Info>
                   <p>{title}</p>
