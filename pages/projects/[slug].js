@@ -42,26 +42,6 @@ const Back = styled.a`
   }
 `;
 
-const Banner = styled.section`
-  height: 500px;
-  position: relative;
-  text-align: center;
-
-  h2 {
-    width: 80%;
-    font-size: 36px;
-    color: #fff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    @media (max-width: ${PORTRAIT_MOBILE}) {
-      font-size: 26px;
-    }
-  }
-`;
-
 const Content = styled.section`
   ${pageHorizentalMargin};
   padding-top: 100px;
@@ -74,37 +54,6 @@ const Content = styled.section`
   @media (min-width: 1200px) {
     margin: 0 auto;
   }
-
-  @import url("https://p.typekit.net/p.css?s=1&k=vqr3tuq&ht=tk&f=24425.24426.24427&a=13014026&app=typekit&e=css");
-
-  @font-face {
-    font-family:"orpheuspro";
-    src:url("https://use.typekit.net/af/972118/000000000000000000016ea6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"),url("https://use.typekit.net/af/972118/000000000000000000016ea6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"),url("https://use.typekit.net/af/972118/000000000000000000016ea6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-    font-display:auto;font-style:normal;font-weight:700;
-  }
-
-  @font-face {
-    font-family:"orpheuspro";
-    src:url("https://use.typekit.net/af/320790/000000000000000000015d5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff2"),url("https://use.typekit.net/af/320790/000000000000000000015d5b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("woff"),url("https://use.typekit.net/af/320790/000000000000000000015d5b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3") format("opentype");
-    font-display:auto;font-style:italic;font-weight:400;
-  }
-
-  @font-face {
-    font-family:"orpheuspro";
-    src:url("https://use.typekit.net/af/07139b/000000000000000000016ea5/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/07139b/000000000000000000016ea5/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/07139b/000000000000000000016ea5/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-    font-display:auto;font-style:normal;font-weight:400;
-  }
-
-  .title {
-    font-family: "orpheuspro",serif;
-    font-size: 36px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #c4c4c4;
-
-    @media (max-width: ${PORTRAIT_MOBILE}) {
-      font-size: 26px;
-    }
-  }
 `;
 
 // eslint-disable-next-line no-extend-native
@@ -113,8 +62,6 @@ String.prototype.splice = function strSplice(idx, rem, str) {
 };
 
 export default function Project({ data }) {
-  const title = data?.project?.title?.rendered;
-
   const addClassToIframeParentTag = (str) => {
     const indexOfIframe = str.indexOf('<p><iframe');
 
@@ -138,15 +85,7 @@ export default function Project({ data }) {
           </Back>
         </Link>
       </Nav>
-      <Banner
-        style={{
-          background: `url('${data?.media?.original}') no-repeat center center/cover`,
-        }}
-      >
-        <h2>{title}</h2>
-      </Banner>
       <Content>
-        <h3 className="title">{title}</h3>
         <div className="content">
           {data?.project?.acf?.content
               && data?.project?.acf?.content.map(({ editor, slider }) => {
