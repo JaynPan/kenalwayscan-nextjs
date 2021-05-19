@@ -39,7 +39,7 @@ const Nav = styled.nav`
       margin-right: 40px;
       list-style: none;
       white-space: nowrap;
-      font-size: 15px;
+      font-size: 18px;
 
       &:last-child { 
         margin-right: 0;

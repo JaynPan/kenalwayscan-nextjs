@@ -4,7 +4,7 @@ import Link from 'next/link';
 import uniqeId from 'uniqid';
 
 import {
- BLEND_MODE, pageMargin, pageHorizentalMargin, LANDSCAPE_TABLET, PORTRAIT_MOBILE,
+ BLEND_MODE, pageMargin, pageHorizentalMargin, LANDSCAPE_TABLET, PORTRAIT_MOBILE, SMALL_LAPTOP,
 } from '@/config/styles';
 import Logo from '@/components/Logo';
 import SlideShow from '@/components/SlideShow';
@@ -28,6 +28,10 @@ const Nav = styled.nav`
   font-size: 18px;
   mix-blend-mode: ${BLEND_MODE};
   z-index: 100;
+
+  @media (max-width: ${SMALL_LAPTOP}) {
+    font-size: 13px;
+  }
 `;
 
 const Back = styled.a`
