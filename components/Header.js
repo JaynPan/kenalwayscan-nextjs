@@ -5,6 +5,7 @@ import {
 } from '@/config/styles';
 import NavLink from '@/components/NavLink';
 import Logo from '@/components/Logo';
+import ArrowRight from '@/components/ArrowRight';
 
 const Nav = styled.nav`
   ${pageMargin};
@@ -46,21 +47,25 @@ const Nav = styled.nav`
       }
 
       a {
-        display: flex;
+        position: relative;
+
+        .arrow-right-svg {
+          fill: #fff;
+        }
 
         &:hover {
           color: #22DA6B;
-        }
 
-        .text {
-          &:hover {
-            border-bottom: 1px solid #22DA6B;
+          .text {
+            border-bottom: 1px solid #22DA6B;  
+          }
+          .arrow-right-svg {
+            fill: #22DA6B;
           }
         }
 
         .arrow {
           display: none;
-          margin-right: 6px;
         }
 
         &.active {
@@ -86,6 +91,19 @@ const Nav = styled.nav`
   }
 `;
 
+const StyleArrowRight = styled(ArrowRight)`
+  width: 14px;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+
+  @media (max-width: ${SMALL_LAPTOP}) {
+    width: 10px;
+    left: -15px;
+  }
+`;
+
 const routes = [
   { slug: '/', title: 'overview' },
   { slug: '/projects', title: 'projects' },
@@ -102,7 +120,7 @@ export default function Header() {
           <li key={slug}>
             <NavLink as={slug} href={slug}>
               <a>
-                <span className="arrow">→</span>
+                <StyleArrowRight className="arrow" />
                 <span className="text">{title}</span>
               </a>
             </NavLink>
