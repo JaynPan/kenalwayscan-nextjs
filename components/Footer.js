@@ -53,10 +53,10 @@ export default function Footer() {
 
         </div>
         <Link
-          href="mailto:aken5393z@gmail.com"
+          href="mailto:kenalwayscan@gmail.com"
           target="_Blank"
         >
-          aken5393z@gmail.com
+          kenalwayscan@gmail.com
         </Link>
         <Phone>(+886) 09 635 33124</Phone>
       </Contact>
