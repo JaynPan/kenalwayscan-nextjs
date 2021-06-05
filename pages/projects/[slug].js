@@ -10,6 +10,7 @@ import Logo from '@/components/Logo';
 import SlideShow from '@/components/SlideShow';
 import Footer from '@/components/Footer';
 import RichEdit from '@/components/RichEdit';
+import ArrowRight from '@/components/ArrowRight';
 
 const ProjectWrapper = styled.div`
   background-color: #fff;
@@ -25,7 +26,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   mix-blend-mode: ${BLEND_MODE};
   z-index: 100;
 
@@ -36,10 +37,17 @@ const Nav = styled.nav`
 
 const Back = styled.a`
   font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
 
   .text {
     border-bottom: 1px solid;
   }
+
+  .arrow-right-svg {
+    fill: #fff;
+  }
+
 
   @media (max-width: ${LANDSCAPE_TABLET}) {
     font-size: 13px;
@@ -57,6 +65,17 @@ const Content = styled.section`
 
   @media (min-width: 1200px) {
     margin: 0 auto;
+  }
+`;
+
+const StyleArrowRight = styled(ArrowRight)`
+  width: 14px;
+  margin-right: 5px;
+  
+  
+
+  @media (max-width: ${SMALL_LAPTOP}) {
+    width: 10px;
   }
 `;
 
@@ -83,8 +102,7 @@ export default function Project({ data }) {
         <Logo />
         <Link as="/projects" href="/projects">
           <Back href="/projects">
-            →
-            {' '}
+            <StyleArrowRight className="arrow" />
             <span className="text">BACK TO &quot;PROJECTS&quot;</span>
           </Back>
         </Link>

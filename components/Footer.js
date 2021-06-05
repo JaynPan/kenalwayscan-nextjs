@@ -13,6 +13,7 @@ const FooterWrapper = styled.footer`
   right: 0;
   color: #fff;
   mix-blend-mode: ${BLEND_MODE};
+  font-size: 16px;
 
   @media (max-width: ${SMALL_LAPTOP}) {
     font-size: 13px;

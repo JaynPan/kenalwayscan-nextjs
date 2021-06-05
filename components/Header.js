@@ -17,7 +17,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   mix-blend-mode: ${BLEND_MODE};
   z-index: 100;
   
@@ -40,7 +40,7 @@ const Nav = styled.nav`
       margin-right: 40px;
       list-style: none;
       white-space: nowrap;
-      font-size: 18px;
+      font-size: 16px;
 
       &:last-child { 
         margin-right: 0;
@@ -119,7 +119,7 @@ export default function Header() {
         {routes.map(({ slug, title }) => (
           <li key={slug}>
             <NavLink as={slug} href={slug}>
-              <a>
+              <a style={{ display: 'flex' }}>
                 <StyleArrowRight className="arrow" />
                 <span className="text">{title}</span>
               </a>
