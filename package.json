@@ -15,8 +15,7 @@
     "react-image-gallery": "^1.0.8",
     "react-progressive-image": "^0.6.0",
     "scroll-behavior-polyfill": "^2.0.13",
-    "styled-components": "^5.1.1",
-    "uniqid": "^5.2.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

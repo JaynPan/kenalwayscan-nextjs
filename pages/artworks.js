@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import uniqid from 'uniqid';
 
 import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
@@ -62,7 +61,7 @@ export default function Artworks({ data }) {
             const { slide, video, photo } = content;
 
             return (
-              <Grid theme={{ grid: Number(grid) }} key={uniqid()}>
+              <Grid theme={{ grid: Number(grid) }} key={title}>
                 {slide && <SlideShow data={slide} />}
                 {video && (
                   <Video

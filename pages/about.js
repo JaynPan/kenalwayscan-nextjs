@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import uniqid from 'uniqid';
 
 import Layout from '@/components/Layout';
 import RichEdit from '@/components/RichEdit';
@@ -108,7 +107,7 @@ export default function about({ data }) {
               </ul>
             </Contact>
             {data?.acf?.post && data?.acf?.post.map(({ title, paragraph }) => (
-              <Section key={uniqid()}>
+              <Section key={title}>
                 <Title>{title}</Title>
                 <Paragraph dangerouslySetInnerHTML={{ __html: paragraph }} />
               </Section>
