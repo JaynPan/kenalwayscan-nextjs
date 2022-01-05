@@ -107,7 +107,7 @@ const StyleArrowRight = styled(ArrowRight)`
 const routes = [
   { slug: '/', title: 'overview' },
   { slug: '/projects', title: 'projects' },
-  { slug: '/photos', title: 'photos' },
+  // { slug: '/photos', title: 'photos' },
   { slug: '/artworks', title: 'artworks' },
   { slug: '/about', title: 'about' },
 ];
