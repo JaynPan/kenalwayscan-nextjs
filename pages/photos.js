@@ -49,7 +49,7 @@ Grid.defaultProps = {
 export default function Photos({ data }) {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>{`Photos | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -96,17 +96,17 @@ export default function Photos({ data }) {
               </Grid>
             );
           })}
-        </Container>
-      </Layout>
+        </Container> */}
+      {/* </Layout> */}
     </>
   );
 }
 
-export async function getStaticProps() {
-  const data = await fetchPhotosData();
+// export async function getStaticProps() {
+//   const data = await fetchPhotosData();
 
-  return {
-    props: { data },
-    revalidate: 10,
-  };
-}
+//   return {
+//     props: { data },
+//     revalidate: 10,
+//   };
+// }
