@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
 
 import '@/styles/globals.css';
@@ -11,7 +11,7 @@ function deviceHasMouse() {
   return matchMedia('(pointer:fine)').matches;
 }
 
-function assignSpinnerPostion(e, element) {
+function assignSpinnerPosition(e, element) {
   const cursorPosition = {
     left: e.pageX + 15,
     top: e.pageY,
@@ -29,7 +29,7 @@ const methods = {
     // eslint-disable-next-line no-return-assign
     return (
       handlers[element]
-      || (handlers[element] = (e) => assignSpinnerPostion(e, element))
+      || (handlers[element] = (e) => assignSpinnerPosition(e, element))
     );
   },
 };
@@ -58,15 +58,25 @@ function MyApp({ Component, pageProps }) {
 
     const spinnerEle = document.querySelector('#logo-spinner-wrapper');
 
+    // when switching different project page, the scroll position remains the same with the previous one which is the default behavior
+    // Thus, scroll to top for a better UX
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+
     setTimeout(() => {
       setLoading(false);
       document.removeEventListener('mousemove', methods.showSpinner(spinnerEle));
     }, 1000);
   };
 
-  Router.events.on('routeChangeStart', start);
-  Router.events.on('routeChangeComplete', end);
-  Router.events.on('routeChangeError', end);
+  useEffect(() => {
+    Router.events.on('routeChangeStart', start);
+    Router.events.on('routeChangeComplete', end);
+    Router.events.on('routeChangeError', end);
+  }, []);
 
   return (
     <>
