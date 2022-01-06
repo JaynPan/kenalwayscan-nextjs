@@ -5,7 +5,7 @@ import Layout from '@/components/Layout';
 import SlideShow from '@/components/SlideShow';
 import { RatioWrapper, RatioInnerStyle } from '@/components/RatioWrapper';
 import { PAGE_TITLE } from '@/config/constants';
-import fetchArtworksData from '@/lib/api/artworks';
+import fetchPhotosData from '@/lib/api/photos';
 import { PORTRAIT_TABLET } from '@/config/styles';
 
 const GRID_COLUMNS = 16;
@@ -46,11 +46,11 @@ Grid.defaultProps = {
   },
 };
 
-export default function Artworks({ data }) {
+export default function Photos({ data }) {
   return (
     <>
-      <Head>
-        <title>{`Artworks | ${PAGE_TITLE}`}</title>
+      {/* <Head>
+        <title>{`Photos | ${PAGE_TITLE}`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
@@ -96,17 +96,17 @@ export default function Artworks({ data }) {
               </Grid>
             );
           })}
-        </Container>
-      </Layout>
+        </Container> */}
+      {/* </Layout> */}
     </>
   );
 }
 
-export async function getStaticProps() {
-  const data = await fetchArtworksData();
+// export async function getStaticProps() {
+//   const data = await fetchPhotosData();
 
-  return {
-    props: { data },
-    revalidate: 10,
-  };
-}
+//   return {
+//     props: { data },
+//     revalidate: 10,
+//   };
+// }

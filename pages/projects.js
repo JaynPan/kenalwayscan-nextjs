@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import uniqueId from 'uniqid';
 import styled from 'styled-components';
 
 import Layout from '@/components/Layout';
@@ -43,7 +42,7 @@ export default function Projects({ data }) {
           {data.map(({
             slug, date, title, image,
           }) => (
-            <ItemWrapper key={uniqueId()}>
+            <ItemWrapper key={title}>
               <ProjectItem
                 title={title}
                 date={date}

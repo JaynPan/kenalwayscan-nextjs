@@ -25,19 +25,9 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         {/* prevent browser scroll bouncing */}
-        <body style={{ height: '100%', overflow: 'hidden' }}>
-          <div style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              left: 0,
-              right: 0,
-              overflow: 'auto',
-            }}
-          >
-            <Main />
-            <NextScript />
-          </div>
+        <body style={{ overscrollBehavior: 'none' }}>
+          <Main />
+          <NextScript />
         </body>
       </html>
     );

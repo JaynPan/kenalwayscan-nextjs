@@ -1,7 +1,7 @@
+/* eslint-disable react/no-array-index-key */
 import { getProject, getAllProjectsWithSlug } from '@/lib/api/project';
 import styled from 'styled-components';
 import Link from 'next/link';
-import uniqeId from 'uniqid';
 
 import {
  BLEND_MODE, pageMargin, pageHorizentalMargin, LANDSCAPE_TABLET, PORTRAIT_MOBILE, SMALL_LAPTOP,
@@ -107,24 +107,27 @@ export default function Project({ data }) {
           </Back>
         </Link>
       </Nav>
+
       <Content>
         <div className="content">
           {data?.project?.acf?.content
-              && data?.project?.acf?.content.map(({ editor, slider }) => {
+              && data?.project?.acf?.content.map(({ editor, slider }, i) => {
                 if (editor) {
-                  const modifiyEditorStr = addClassToIframeParentTag(editor);
+                  const modifyEditorStr = addClassToIframeParentTag(editor);
 
                   return (
                     <RichEdit
-                      key={uniqeId()}
-                      dangerouslySetInnerHTML={{ __html: modifiyEditorStr }}
+                      key={`rich_edit_${i}`}
+                      dangerouslySetInnerHTML={{ __html: modifyEditorStr }}
                     />
                   );
-                } if (slider) {
-                  return <SlideShow data={slider} key={uniqeId()} />;
                 }
 
-                return false;
+                if (slider) {
+                  return <SlideShow key={`slide_show_${i}`} data={slider} />;
+                }
+
+                return <></>;
               })}
         </div>
       </Content>
