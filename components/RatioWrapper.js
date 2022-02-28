@@ -5,7 +5,6 @@ export const RatioWrapper = styled.div`
   height: 0;
   padding-top: ${(props) => props.ratio}%;
   position: relative;
-  background-color: #eee;
   overflow: hidden;
 `;
 
