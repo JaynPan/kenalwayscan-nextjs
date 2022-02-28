@@ -6,10 +6,21 @@ import { RatioWrapper, RatioInnerStyle } from '@/components/RatioWrapper';
 const SlideWrapper = styled.div`
   ${RatioInnerStyle}
 
-  // align vertically center while in fullscreen mode
-  .image-gallery {
-    display: flex;
-    align-items: center;
+  // 為了讓 slider 照片能夠完全 cover container 後的設定
+  .image-gallery,
+  .image-gallery-content,
+  .image-gallery-slide-wrapper,
+  .image-gallery-swipe,
+  .image-gallery-slides,
+  .image-gallery-slide,
+  .image-gallery-slide div {
+    height: 100%;
+  }
+
+  // 不確定為何要 + 80px，是 work around 出來的結果
+  .image-gallery-content .image-gallery-slide .image-gallery-image {
+    max-height: calc(100vh + 80px);
+    object-fit: cover;
   }
 
   // change fullscreen icon styles
